@@ -11,7 +11,7 @@ import com.example.sqlite_example.model.entities.Course
 import com.example.sqlite_example.model.entities.Mark
 import com.example.sqlite_example.model.entities.Student
 
-@Database(entities = [Student::class, Course::class, Mark::class],version = 1,exportSchema = false)
+@Database(entities = [Student::class, Course::class, Mark::class],version = 2,exportSchema = false)
 abstract class MyDatabase:RoomDatabase() {
 
     abstract fun studentDao(): StudentDao
@@ -34,7 +34,7 @@ abstract class MyDatabase:RoomDatabase() {
                         context.applicationContext,
                         MyDatabase::class.java,
                         "my_database"
-                    ).build()
+                    ).fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                     return instance
 

@@ -26,7 +26,7 @@ class StudentListAdapter(var students: LiveData<List<Student>>):RecyclerView.Ada
         var textViewFirstName= holder.itemView.findViewById<TextView>(R.id.textViewFirstName)
         var textViewLastName= holder.itemView.findViewById<TextView>(R.id.textViewLastName)
 
-        textViewID.text= students.value?.get(position)?.id.toString()
+        textViewID.text= students.value?.get(position)?.studentId.toString()
         textViewFirstName.text=students.value?.get(position)?.firstName
         textViewLastName.text=students.value?.get(position)?.lastName
     }

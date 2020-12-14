@@ -8,6 +8,5 @@ import java.util.*
 data class Mark(
     @PrimaryKey val markId: Int,
     var mark: Double,
-    var note: String,
-    var date: Date
+    var note: String
 )
