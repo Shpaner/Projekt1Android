@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/welcomFragment">
+
+    <fragment
+        android:id="@+id/welcomFragment"
+        android:name="com.example.sqlite_example.view.WelcomFragment"
+        android:label="fragment_welcom"
+        tools:layout="@layout/fragment_welcom" >
+        <action
+            android:id="@+id/action_welcomFragment_to_studentAddFragment"
+            app:destination="@id/studentAddFragment" />
+        <action
+            android:id="@+id/action_welcomFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.example.sqlite_example.view.StudentListFragment"
+        android:label="fragment_student_list"
+        tools:layout="@layout/fragment_student_list" />
+    <fragment
+        android:id="@+id/studentAddFragment"
+        android:name="com.example.sqlite_example.view.StudentAddFragment"
+        android:label="fragment_student_add"
+        tools:layout="@layout/fragment_student_add" >
+        <action
+            android:id="@+id/action_studentAddFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+        <action
+            android:id="@+id/action_studentAddFragment_to_welcomFragment"
+            app:destination="@id/welcomFragment" />
+    </fragment>
+</navigation>
