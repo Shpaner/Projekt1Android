@@ -6,7 +6,7 @@ import java.util.*
 
 @Entity(tableName = "mark_table")
 data class Mark(
-    @PrimaryKey val markId: Int,
+    @PrimaryKey(autoGenerate = true) val markId: Int,
     var mark: Double,
     var note: String
 )

@@ -42,8 +42,10 @@ class WelcomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button2.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentAddFragment) }
-        button3.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentListFragment) }
+        Students.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentAddFragment)}
+        ListOfStudents.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentListFragment)}
+        Courses.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_courseAddFragment) }
+        ListOfCourses.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_courseListFragment) }
     }
     companion object {
         /**

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -26,14 +27,14 @@
         android:text="TextView" />
 
     <Button
-        android:id="@+id/editBtn"
-        android:layout_width="0dp"
+        android:id="@+id/editButton"
+        android:layout_width="66dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:text="Edit" />
 
     <Button
-        android:id="@+id/deleteBtn"
+        android:id="@+id/deleteButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"

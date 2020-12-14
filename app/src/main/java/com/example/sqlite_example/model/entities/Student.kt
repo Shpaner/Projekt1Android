@@ -6,7 +6,7 @@ import java.sql.RowId
 
 @Entity(tableName = "student_table")
 data class Student(
-    @PrimaryKey val studentId: Int,
+    @PrimaryKey(autoGenerate = true) val studentId: Int,
     var firstName: String,
     var lastName: String
 )

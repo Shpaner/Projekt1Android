@@ -10,23 +10,48 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Students"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Students"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/ListOfStudents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lista"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:layout_marginTop="416dp"
+        android:layout_marginBottom="267dp"
+        android:text="list of students"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Courses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="31dp"
+        android:text="Course"
+        app:layout_constraintBottom_toTopOf="@+id/ListOfCourses"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/ListOfCourses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="71dp"
+        android:text="List of Courses"
+        app:layout_constraintBottom_toTopOf="@+id/Students"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
