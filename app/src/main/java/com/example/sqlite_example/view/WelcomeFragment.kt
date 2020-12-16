@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.sqlite_example.R
+import com.example.sqlite_example.model.entities.Student
 import kotlinx.android.synthetic.main.fragment_welcom.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,8 +43,11 @@ class WelcomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Students.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentAddFragment)}
-        ListOfStudents.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentListFragment)}
+        Students.setOnClickListener {
+            val action = WelcomFragmentDirections.actionWelcomFragmentToStudentAddFragment(false, Student(1,"kurczak","nie wiem jak to inaczej zrobic zeby tego gowna nie wyjebalo"))
+            view.findNavController().navigate(action)
+        }
+        ListOfStudents.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_studentListFragment) }
         Courses.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_courseAddFragment) }
         ListOfCourses.setOnClickListener { view->view.findNavController().navigate(R.id.action_welcomFragment_to_courseListFragment) }
     }

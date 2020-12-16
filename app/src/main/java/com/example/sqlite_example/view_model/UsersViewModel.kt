@@ -33,6 +33,12 @@ class UsersViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun updateStudent(student: Student) {
+        viewModelScope.launch {
+            studentRepository.update(student)
+        }
+    }
+
     fun deleteStudent(student: Student)
     {
         viewModelScope.launch {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.sqlite_example.R
+import com.example.sqlite_example.model.entities.Student
 import com.example.sqlite_example.view_model.UsersViewModel
 import kotlinx.android.synthetic.main.fragment_course_add.*
 import kotlinx.android.synthetic.main.fragment_student_add.*
@@ -20,6 +21,8 @@ class StudentAddFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var bEditable: Boolean =false
+    private lateinit var student: Student
     private lateinit var viewModel: UsersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,17 +40,41 @@ class StudentAddFragment : Fragment() {
 
         viewModel=ViewModelProvider(requireActivity()).get(UsersViewModel::class.java)
 
+        arguments?.let{
+            val args = StudentAddFragmentArgs.fromBundle(it)
 
+            if(args.bEdit){
+                bEditable=true
+                student= args.Student
+            }
+        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_student_add, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AddCourseBtn.setOnClickListener {
-            if(textName.text.toString()!=""&&textLastName.text.toString()!=""&&textName.text.toString()!="Name"&&textLastName.text.toString()!="LastName")
+
+
+        if(bEditable){
+            studentName.setText(student.firstName)
+            studentLastName.setText(student.lastName)
+            addStudentBtn.text = "edit"
+        }
+
+
+        addStudentBtn.setOnClickListener {
+            if(studentName.text.toString() != "" && studentLastName.text.toString() != "" &&
+                studentName.text.toString() !="Name" &&studentLastName.text.toString() !="LastName")
             {
-                viewModel.addStudent(textName.text.toString(), textLastName.text.toString())
+                if(bEditable){
+                    student.firstName = studentName.text.toString()
+                    student.lastName = studentLastName.text.toString()
+                    viewModel.updateStudent(student)
+                }
+                else{
+                    viewModel.addStudent(studentName.text.toString(), studentLastName.text.toString())
+                }
             }
         }
     }
@@ -62,6 +89,90 @@ class StudentAddFragment : Fragment() {
             }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//class StudentAddFragment : Fragment() {
+//    private var param1: String? = null
+//    private var param2: String? = null
+//
+//    private lateinit var viewModel: UsersViewModel
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        arguments?.let {
+//            param1 = it.getString(ARG_PARAM1)
+//            param2 = it.getString(ARG_PARAM2)
+//        }
+//    }
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//
+//        viewModel=ViewModelProvider(requireActivity()).get(UsersViewModel::class.java)
+//
+//
+//        // Inflate the layout for this fragment
+//        return inflater.inflate(R.layout.fragment_student_add, container, false)
+//    }
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        AddCourseBtn.setOnClickListener {
+//            if(textName.text.toString()!=""&&textLastName.text.toString()!=""&&textName.text.toString()!="Name"&&textLastName.text.toString()!="LastName")
+//            {
+//                viewModel.addStudent(textName.text.toString(), textLastName.text.toString())
+//            }
+//        }
+//    }
+//    companion object {
+//        @JvmStatic
+//        fun newInstance(param1: String, param2: String) =
+//            StudentAddFragment().apply {
+//                arguments = Bundle().apply {
+//                    putString(ARG_PARAM1, param1)
+//                    putString(ARG_PARAM2, param2)
+//                }
+//            }
+//    }
+//}
 
 
 

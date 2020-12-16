@@ -39,6 +39,12 @@
         <action
             android:id="@+id/action_studentAddFragment_to_welcomFragment"
             app:destination="@id/welcomFragment" />
+        <argument
+            android:name="bEdit"
+            app:argType="boolean" />
+        <argument
+            android:name="Student"
+            app:argType="com.example.sqlite_example.model.entities.Student" />
     </fragment>
     <fragment
         android:id="@+id/courseAddFragment"
